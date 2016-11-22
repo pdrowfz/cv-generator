@@ -1,0 +1,5 @@
+sudo apt install python-setuptools
+sudo easy_install cherrypy
+sudo apt install texlive-latex-base
+sudo apt-get install texlive-lang-portuguese
+sudo apt-get install texlive-fonts-recommended
