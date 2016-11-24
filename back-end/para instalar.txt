@@ -3,3 +3,7 @@ sudo easy_install cherrypy
 sudo apt install texlive-latex-base
 sudo apt-get install texlive-lang-portuguese
 sudo apt-get install texlive-fonts-recommended
+
+Flask:
+pip install Flask
+pip install -U flask-cors

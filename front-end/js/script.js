@@ -75,7 +75,7 @@ function buildJson() {
 
 function generateCV(json) {
     var jqxhr = $.ajax({
-        url: 'http://localhost:8080/cv',
+        url: 'http://localhost:5000/cv',
         type: 'POST',
         data: JSON.stringify(json),
         contentType: 'application/json; charset=UTF-8'
@@ -97,7 +97,7 @@ function generateCV(json) {
 
 function downloadCV(fileName) {
     var a = document.createElement('a');
-    a.href = 'http://localhost:8080/' + fileName;
+    a.href = 'http://localhost:5000/' + fileName;
     a.setAttribute('target', '_blank');
     a.click();
 }
