@@ -96,8 +96,10 @@ function generateCV(json) {
 }
 
 function downloadCV(fileName) {
-    var a = document.createElement('a');
-    a.href = 'http://localhost:5000/' + fileName;
-    a.setAttribute('target', '_blank');
-    a.click();
+    console.log(fileName);
+    window.location.href = 'http://localhost:5000/' + fileName;
+    // var a = document.createElement('a');
+    // a.href = 'http://localhost:5000/' + fileName;
+    // a.setAttribute('target', '_blank');
+    // a.click();
 }
