@@ -1,7 +1,107 @@
 $(start);
 
 function start() {
+    $('#nome').focus();
+    loadStates();
+    loadMonth();
+    loadYear();
+
     $('#generator-btn').click(buildJson);
+    $('#add-experience').click(addExperience);
+    $('#add-education').click(addEducation);
+    $('#add-language').click(addLanguage);
+    $('#add-skill').click(addSkill);
+}
+
+function loadStates() {
+    $.getJSON('json/Estados.json', function(data) {
+        var options = '';
+
+        $.each(data, function() {
+            var option = '';
+
+            option += '<option value="' + this.ID + '">';
+            option += this.Sigla + '</option>';
+
+            options += option;
+        });
+
+        $('#estado').html(options).change();
+    });
+
+    $('#estado').change(function() {
+        loadCidades($(this).val());
+    });
+}
+
+function loadCidades(state) {
+    $.getJSON('json/Cidades.json', function(data) {
+        var options = '';
+
+        $.each(data, function() {
+            if(this.Estado === state) {
+                var option = '';
+
+                option += '<option value="' + this.ID +'">';
+                option += this.Nome + '</option>';
+
+                options += option;
+            }
+        });
+
+        $('#cidade').html(options);
+    });
+}
+
+function loadMonth() {
+    var options = '',
+        months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+    $.each(months, function(k, v) {
+        var option = '';
+
+        option += '<option value="' + (k + 1) + '">';
+        option += v + '</option>';
+
+        options += option;
+    });
+
+    $('.month').html(options);
+}
+
+function loadYear() {
+    var today = new Date(),
+        thisYear = today.getUTCFullYear(),
+        options = '';
+
+    for(i = (thisYear - 100); i <= (thisYear + 50); i++) {
+        var option = '';
+
+        option += '<option value="' + i + '"';
+        if(i === thisYear) option += ' selected';
+        option += '>' + i + '</option>';
+
+        options += option;
+    }
+
+    $('.year').html(options);
+}
+
+function addExperience() {
+    $('#experiences').append($('#experience-template').html());
+}
+
+function addEducation() {
+    $('#educations').append($('#education-template').html());
+}
+
+function addLanguage() {
+    $('#languages').append($('#languages-template').html());
+}
+
+function addSkill() {
+    $('#skills').append($('#skills-template').html());
 }
 
 function buildJson() {
@@ -96,10 +196,5 @@ function generateCV(json) {
 }
 
 function downloadCV(fileName) {
-    console.log(fileName);
     window.location.href = 'http://localhost:5000/' + fileName;
-    // var a = document.createElement('a');
-    // a.href = 'http://localhost:5000/' + fileName;
-    // a.setAttribute('target', '_blank');
-    // a.click();
 }

@@ -14,11 +14,250 @@
     <div class="jumbotron">
         <div class="container text-center">
             <h1>CV Generator</h1>
-            <p>
-                <a id="generator-btn" class="btn btn-primary btn-lg" href="#" role="button">
-                    Generate CV!
-                </a>
-            </p>
+
+            <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.</p>
+
+            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- ========================================================== -->
+            <!-- ===================== Dados Pessoais ===================== -->
+            <!-- ========================================================== -->
+
+            <div class="col-xs-12">
+                <h3>Dados Pessoais</h3>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Nome Completo</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome Completo">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Endereço</label>
+                <input type="text" class="form-control" placeholder="Endereço">
+            </div>
+
+            <div class="form-group col-xs-3">
+                <label>Estado</label>
+                <select class="form-control" id="estado">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-9">
+                <label>Cidade</label>
+                <select class="form-control" id="cidade">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Telefone</label>
+                <input type="tel" class="form-control" placeholder="Telefone">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>E-mail</label>
+                <input type="email" class="form-control" placeholder="E-mail">
+            </div>
+
+            <!-- ========================================================== -->
+            <!-- ====================== Experiência ======================= -->
+            <!-- ========================================================== -->
+
+            <div class="col-xs-12">
+                <h3>Experiência</h3>
+            </div>
+
+            <div id="experiences"></div>
+
+            <div class="form-group col-xs-12">
+                <button class="btn btn-default" id="add-experience">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    Adicionar Experiência
+                </button>
+            </div>
+
+            <!-- ========================================================== -->
+            <!-- ======================== Formação ======================== -->
+            <!-- ========================================================== -->
+
+            <div class="col-xs-12">
+                <h3>Formação</h3>
+            </div>
+
+            <div id="educations"></div>
+
+            <div class="form-group col-xs-12">
+                <button class="btn btn-default" id="add-education">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    Adicionar Formação
+                </button>
+            </div>
+
+            <!-- ========================================================== -->
+            <!-- ======================== Idiomas ========================= -->
+            <!-- ========================================================== -->
+
+            <div class="col-xs-12">
+                <h3>Idiomas</h3>
+            </div>
+
+            <div id="languages"></div>
+
+            <div class="form-group col-xs-12">
+                <button class="btn btn-default" id="add-language">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    Adicionar Idioma
+                </button>
+            </div>
+
+            <!-- ========================================================== -->
+            <!-- ====================== Habilidades ======================= -->
+            <!-- ========================================================== -->
+
+            <div class="col-xs-12">
+                <h3>Habilidades</h3>
+            </div>
+
+            <div id="skills"></div>
+
+            <div class="form-group col-xs-12">
+                <button class="btn btn-default" id="add-skill">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    Adicionar Habilidade
+                </button>
+            </div>
+
+            <div class="col-xs-12 text-center">
+                <button id="generator-btn" class="btn btn-primary btn-lg">Generate CV!</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="templates">
+        <!-- ========================================================== -->
+        <!-- ====================== Experiência ======================= -->
+        <!-- ========================================================== -->
+        <div id="experience-template">
+            <div class="form-group col-xs-3">
+                <label>Mês de Início</label>
+                <select class="form-control month">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-3">
+                <label>Ano de Início</label>
+                <select class="form-control year">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-3">
+                <label>Mês de Fim</label>
+                <select class="form-control month">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-3">
+                <label>Ano de Fim</label>
+                <select class="form-control year">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Título</label>
+                <input type="text" class="form-control" placeholder="Título">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Empresa</label>
+                <input type="text" class="form-control" placeholder="Empresa">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Detalhes</label>
+                <textarea class="form-control" rows="3" placeholder="Detalhes"></textarea>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- ======================== Formação ======================== -->
+        <!-- ========================================================== -->
+        <div id="education-template">
+            <div class="form-group col-xs-6">
+                <label>Início</label>
+                <select class="form-control year">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label>Fim</label>
+                <select class="form-control year">
+                    <option value="0">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-3">
+                <label>Grau</label>
+                <input type="text" class="form-control" placeholder="Grau">
+            </div>
+
+            <div class="form-group col-xs-9">
+                <label>Área</label>
+                <input type="text" class="form-control" placeholder="Área">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Instituição</label>
+                <input type="text" class="form-control" placeholder="Instituição">
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>Detalhes</label>
+                <textarea class="form-control" rows="3" placeholder="Detalhes"></textarea>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- ======================== Idiomas ========================= -->
+        <!-- ========================================================== -->
+        <div id="languages-template">
+            <div class="form-group col-xs-6">
+                <label>Idioma</label>
+                <input type="text" class="form-control" placeholder="Idioma">
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label>Nível</label>
+                <select class="form-control">
+                    <option>Básico</option>
+                    <option>Intermediário</option>
+                    <option>Avançado</option>
+                    <option>Fluente</option>
+                    <option>Nativo</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <!-- ========================================================== -->
+        <!-- ====================== Habilidades ======================= -->
+        <!-- ========================================================== -->
+        <div id="skills-template">
+            <div class="form-group col-xs-12">
+                <label>Habilidade</label>
+                <input type="text" class="form-control" placeholder="Habilidade">
+            </div>
         </div>
     </div>
 
