@@ -1,5 +1,12 @@
 $(start);
 
+var count = {
+    "experience": 0,
+    "education": 0,
+    "language": 0,
+    "skill": 0
+};
+
 function start() {
     $('#nome').focus();
     loadStates();
@@ -7,6 +14,7 @@ function start() {
     loadYear();
 
     $('#generator-btn').click(buildJson);
+
     $('#add-experience').click(addExperience);
     $('#add-education').click(addEducation);
     $('#add-language').click(addLanguage);
@@ -89,88 +97,150 @@ function loadYear() {
 }
 
 function addExperience() {
-    $('#experiences').append($('#experience-template').html());
+    var html = '';
+    html += '<div id="experience-' + count.experience + '">';
+    html += $('#experience-template').html();
+    html += '</div>';
+
+    $('#experiences').append(html);
+
+    count.experience++;
 }
 
 function addEducation() {
-    $('#educations').append($('#education-template').html());
+    var html = '';
+    html += '<div id="education-' + count.education + '">';
+    html += $('#education-template').html();
+    html += '</div>';
+
+    $('#educations').append(html);
+
+    count.education++;
 }
 
 function addLanguage() {
-    $('#languages').append($('#languages-template').html());
+    var html = '';
+    html += '<div id="language-' + count.language + '">';
+    html += $('#language-template').html();
+    html += '</div>';
+
+    $('#languages').append(html);
+
+    count.language++;
 }
 
 function addSkill() {
-    $('#skills').append($('#skills-template').html());
+    var html = '';
+    html += '<div id="skill-' + count.skill + '">';
+    html += $('#skill-template').html();
+    html += '</div>';
+
+    $('#skills').append(html);
+
+    count.skill++;
 }
 
 function buildJson() {
-    var json = {
-        "dadosPessoais": [
-            {
-                "nome": "Rafael Ferraz Zanetti",
-                "endereco": "Rua Paschoal Leite Paes, 335 - Vila Progresso",
-                "cidade": "Sorocaba",
-                "estado": "SP",
-                "telefone": "(15) 99744-3347",
-                "email": "rfzanetti@gmail.com"
-            }
-        ],
-        "experiencias": [
-            {
-                "inicio": "05/2016",
-                "fim": "07/2016",
-                "titulo": "Aluno-Pesquisador",
-                "empresa": "Wisconsin Human-Computer Interaction Laboratory",
-                "detalhes": "Desenvolvi, utilizando C++, o comportamento de um pequeno robô humanoide voltado a interação com crianças. Desenvolvi um simples sistema de recomendação de livros baseados no interesse da criança, trabalhei com sistemas de detecção facial, detecção de April Tags e leitura de cartões RFID."
-            }
-        ],
-        "formacoes": [
-            {
-                "inicio": "2013",
-                "fim": "2017",
-                "grau": "Bacharel",
-                "area": "Ciência da Computação",
-                "instituicao": "UFSCar Sorocaba",
-                "detalhes": "Monitor das disciplinas de Algoritmos e Programação I e II"
-            },
-            {
-                "inicio": "2015",
-                "fim": "2016",
-                "grau": "Aluno Visitante",
-                "area": "Ciência da Computação",
-                "instituicao": "University of Wisconsin-Madison (EUA)",
-                "detalhes": "Graduacao-Sanduíche pelo Programa Ciência Sem Fronteiras."
-            }
-        ],
-        "idiomas": [
-            {
-                "lingua": "Português",
-                "nivel": "Nativo"
-            },
-            {
-                "lingua": "Inglês",
-                "nivel": "Fluente"
-            },
-            {
-                "lingua": "Espanhol",
-                "nivel": "Básico"
-            }
-        ],
-        "habilidades": [
-            {
-                "nome": "Python"
-            },
-            {
-                "nome": "C"
-            },
-            {
-                "nome": "C++"
-            }
-        ]
-    };
+    var json = {};
+
+    json.dadosPessoais = buildPersonalDetails();
+    json.experiencias = buildExperiences();
+    json.formacoes = buildEducations();
+    json.idiomas = buildLanguages();
+    json.habilidades = buildSkills();
 
     generateCV(json);
+}
+
+function buildPersonalDetails() {
+    var personalDetails = [],
+        json = {};
+
+    json.nome = $('#nome').val();
+    json.endereco = $('#endereco').val();
+    json.cidade = $('#cidade option:selected').text();
+    json.estado = $('#estado option:selected').text();
+    json.telefone = $('#telefone').val();
+    json.email = $('#email').val();
+
+    personalDetails.push(json);
+
+    return personalDetails;
+}
+
+function buildExperiences() {
+    var experiences = [];
+
+    for(i = 0; i < count.experience; i++) {
+        var json = {};
+
+        var inicio = '',
+            fim = '';
+
+        inicio += ('0' + $('#experience-' + i + ' .mes-inicio').val()).slice(-2);
+        inicio += '/' + $('#experience-' + i + ' .ano-inicio').val();
+
+        fim += ('0' + $('#experience-' + i + ' .mes-fim').val()).slice(-2);
+        fim += '/' + $('#experience-' + i + ' .ano-fim').val();
+
+        json.inicio = inicio;
+        json.fim = fim;
+        json.titulo = $('#experience-' + i + ' .titulo').val();
+        json.empresa = $('#experience-' + i + ' .empresa').val();
+        json.detalhes = $('#experience-' + i + ' .detalhes').val();
+
+        experiences.push(json);
+    }
+
+    return experiences;
+}
+
+function buildEducations() {
+    var educations = [];
+
+    for(i = 0; i < count.education; i++) {
+        var json = {};
+
+        json.inicio = $('#education-' + i + ' .inicio').val();
+        json.fim = $('#education-' + i + ' .fim').val();
+        json.grau = $('#education-' + i + ' .grau').val();
+        json.area = $('#education-' + i + ' .area').val();
+        json.instituicao = $('#education-' + i + ' .instituicao').val();
+        json.detalhes = $('#education-' + i + ' .detalhes').val();
+
+        educations.push(json);
+    }
+
+    return educations;
+}
+
+function buildLanguages() {
+    var languages = [];
+
+    for(i = 0; i < count.language; i++) {
+        var json = {};
+
+        json.lingua = $('#language-' + i + ' .lingua').val();
+        json.nivel = $('#language-' + i + ' .nivel').val();
+
+        languages.push(json);
+    }
+
+    return languages;
+}
+
+function buildSkills() {
+    var skills = [];
+
+    for(i = 0; i < count.skill; i++) {
+        var json = {};
+
+        json.nome = $('#skill-' + i + ' .nome').val();
+
+        skills.push(json);
+    }
+
+    return skills;
 }
 
 function generateCV(json) {

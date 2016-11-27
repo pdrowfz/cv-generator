@@ -38,7 +38,7 @@
 
             <div class="form-group col-xs-12">
                 <label>Endereço</label>
-                <input type="text" class="form-control" placeholder="Endereço">
+                <input type="text" class="form-control" id="endereco" placeholder="Endereço">
             </div>
 
             <div class="form-group col-xs-3">
@@ -57,12 +57,12 @@
 
             <div class="form-group col-xs-12">
                 <label>Telefone</label>
-                <input type="tel" class="form-control" placeholder="Telefone">
+                <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
             </div>
 
             <div class="form-group col-xs-12">
                 <label>E-mail</label>
-                <input type="email" class="form-control" placeholder="E-mail">
+                <input type="email" class="form-control" id="email" placeholder="E-mail">
             </div>
 
             <!-- ========================================================== -->
@@ -146,45 +146,45 @@
         <div id="experience-template">
             <div class="form-group col-xs-3">
                 <label>Mês de Início</label>
-                <select class="form-control month">
+                <select class="form-control month mes-inicio">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-3">
                 <label>Ano de Início</label>
-                <select class="form-control year">
+                <select class="form-control year ano-inicio">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-3">
                 <label>Mês de Fim</label>
-                <select class="form-control month">
+                <select class="form-control month mes-fim">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-3">
                 <label>Ano de Fim</label>
-                <select class="form-control year">
+                <select class="form-control year ano-fim">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-12">
                 <label>Título</label>
-                <input type="text" class="form-control" placeholder="Título">
+                <input type="text" class="form-control titulo" placeholder="Título">
             </div>
 
             <div class="form-group col-xs-12">
                 <label>Empresa</label>
-                <input type="text" class="form-control" placeholder="Empresa">
+                <input type="text" class="form-control empresa" placeholder="Empresa">
             </div>
 
             <div class="form-group col-xs-12">
                 <label>Detalhes</label>
-                <textarea class="form-control" rows="3" placeholder="Detalhes"></textarea>
+                <textarea class="form-control detalhes" rows="3" placeholder="Detalhes"></textarea>
             </div>
         </div>
 
@@ -194,51 +194,51 @@
         <div id="education-template">
             <div class="form-group col-xs-6">
                 <label>Início</label>
-                <select class="form-control year">
+                <select class="form-control year inicio">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-6">
                 <label>Fim</label>
-                <select class="form-control year">
+                <select class="form-control year fim">
                     <option value="0">Carregando...</option>
                 </select>
             </div>
 
             <div class="form-group col-xs-3">
                 <label>Grau</label>
-                <input type="text" class="form-control" placeholder="Grau">
+                <input type="text" class="form-control grau" placeholder="Grau">
             </div>
 
             <div class="form-group col-xs-9">
                 <label>Área</label>
-                <input type="text" class="form-control" placeholder="Área">
+                <input type="text" class="form-control area" placeholder="Área">
             </div>
 
             <div class="form-group col-xs-12">
                 <label>Instituição</label>
-                <input type="text" class="form-control" placeholder="Instituição">
+                <input type="text" class="form-control instituicao" placeholder="Instituição">
             </div>
 
             <div class="form-group col-xs-12">
                 <label>Detalhes</label>
-                <textarea class="form-control" rows="3" placeholder="Detalhes"></textarea>
+                <textarea class="form-control detalhes" rows="3" placeholder="Detalhes"></textarea>
             </div>
         </div>
 
         <!-- ========================================================== -->
         <!-- ======================== Idiomas ========================= -->
         <!-- ========================================================== -->
-        <div id="languages-template">
+        <div id="language-template">
             <div class="form-group col-xs-6">
                 <label>Idioma</label>
-                <input type="text" class="form-control" placeholder="Idioma">
+                <input type="text" class="form-control lingua" placeholder="Idioma">
             </div>
 
             <div class="form-group col-xs-6">
                 <label>Nível</label>
-                <select class="form-control">
+                <select class="form-control nivel">
                     <option>Básico</option>
                     <option>Intermediário</option>
                     <option>Avançado</option>
@@ -253,10 +253,10 @@
         <!-- ========================================================== -->
         <!-- ====================== Habilidades ======================= -->
         <!-- ========================================================== -->
-        <div id="skills-template">
+        <div id="skill-template">
             <div class="form-group col-xs-12">
                 <label>Habilidade</label>
-                <input type="text" class="form-control" placeholder="Habilidade">
+                <input type="text" class="form-control nome" placeholder="Habilidade">
             </div>
         </div>
     </div>
