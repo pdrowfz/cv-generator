@@ -1,3 +1,13 @@
 #templates {
     display: none;
 }
+
+#generator-btn {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 200px;
+}
+
+.spacing {
+    margin-top: 10px;
+}
